@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fan</title>
+    <style>
+        body{
+            background: #f6f6f6;
+        }
+        #fanbox{
+            width: 350px;
+            height: 300px;
+            background-image: url('img/fanblade2.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 100px auto;
+            animation-name: fan;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-play-state: paused;
+        }
+        @keyframes fan{
+            0%{
+                transform: rotateZ(0deg);
+            }
+            100%{
+                transform: rotateZ(359deg);
+            }
+        }
+        
+        
+    </style>
+    <script>
+        function startFan(speed){
+            if(speed == 0){
+                document.querySelector('#fanbox').style.animationPlayState='paused';
+            }else if(speed == 1){
+                document.querySelector('#fanbox').style.animationPlayState='running';
+                document.querySelector('#fanbox').style.animationDuration='0.8s';
+            }else if(speed == 2){
+                document.querySelector('#fanbox').style.animationPlayState='running';
+                document.querySelector('#fanbox').style.animationDuration='0.4s';
+            }else{
+                document.querySelector('#fanbox').style.animationPlayState='running';
+                document.querySelector('#fanbox').style.animationDuration='0.2s';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="fanbox">
+
+    </div>
+    <div style="text-align: center;" class="buttongroup">
+        <button onclick="startFan(0)">STOP</button>
+        <button onclick="startFan(1)">1</button>
+        <button onclick="startFan(2)">2</button>
+        <button onclick="startFan(3)">3</button>
+    </div>
+    <script>
+        
+    </script>
+</body>
+</html>
